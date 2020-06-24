@@ -36,16 +36,16 @@ const maxArea = (height) => {
 // set each height in the outer loop as fixed, find distance to height in inner loop
 // find area by multiplying distance with smaller of two heights
 // compare with previous maximum height
-// const maxArea = (height) => {
-//     if (height.length === 2) { return Math.min(height[0], height[1]); }
-//     let maxArea = 0;
-//     for (let i = 0; i < height.length - 1; i++) {
-//         for (let j = i + 1; j < height.length; j++) {
-//             const dist = j - i;
-//             const currentHeight = Math.min(height[i], height[j]);
-//             const currentArea = dist * currentHeight;
-//             maxArea = Math.max(currentArea, maxArea);
-//         }
-//     }
-//     return maxArea;
-// };
+const maxAreaBrute = (height) => {
+    if (height.length === 2) { return Math.min(height[0], height[1]); }
+    let maxArea = 0;
+    for (let i = 0; i < height.length - 1; i++) {
+        for (let j = i + 1; j < height.length; j++) {
+            const dist = j - i;
+            const currentHeight = Math.min(height[i], height[j]);
+            const currentArea = dist * currentHeight;
+            maxArea = Math.max(currentArea, maxArea);
+        }
+    }
+    return maxArea;
+};

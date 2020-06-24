@@ -50,18 +50,19 @@ const threeSum = (nums) => {
 };
 
 // Directly uses same concepts as twosum, but does not handle dupes
-// const threeSum = (nums) => {
-//   let triplets = [];
-//   for (let i = 0; i < nums.length; i++) {
-//     let map = {};
-//     for (let j = i + 1; j < nums.length; j++) {
-//       let difference = nums[j] === 0 ? -1 * nums[i] : nums[i] - nums[j];
-//       if (typeof(map[nums[j]]) !== "undefined") {
-//         triplets.push([nums[i], map[nums[j]], nums[j]]);
-//       } else {
-//         map[difference] = nums[j];
-//       }
-//     }
-//   }
-//   return triplets;
-// }
+// i.e. a whole trap
+const threeSumPartial = (nums) => {
+  let triplets = [];
+  for (let i = 0; i < nums.length; i++) {
+    let map = {};
+    for (let j = i + 1; j < nums.length; j++) {
+      let difference = nums[j] === 0 ? -1 * nums[i] : nums[i] - nums[j];
+      if (typeof(map[nums[j]]) !== "undefined") {
+        triplets.push([nums[i], map[nums[j]], nums[j]]);
+      } else {
+        map[difference] = nums[j];
+      }
+    }
+  }
+  return triplets;
+}
